@@ -26,8 +26,8 @@ db.connect(function (err) {
 });
 
 const users = {
-    'admin': {password: 'admin', role: 'admin'},
-    'client': {password: 'client', role: 'client'}
+    'admin': {password: 'admin'},
+    'client': {password: 'client'}
 };
 
 app.use(basicAuth({
@@ -40,11 +40,9 @@ app.use(basicAuth({
         }
         return cb(null, true, user.role);
     }
-}));
-
-app.use((req, res, next) => {
-    const userRole = req.auth.user;
-    if (req.method !== 'GET' && userRole !== 'admin') {
+}), (req, res, next) => {
+    const user = req.auth.user;
+    if (req.method !== 'GET' && user !== 'admin') {
         res.status(403).send('Forbidden')
     } else {
         next();
