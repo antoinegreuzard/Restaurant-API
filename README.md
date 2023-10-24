@@ -24,11 +24,11 @@ Before you begin, make sure you have the following installed:
 - Create a database named `restapi`.
 - Import the database schema from the `database.sql` file in the repository.
 
-4. Configure the database connection in `app.js` if necessary.
+4. Configure the database connection in `server.js` if necessary.
 
 ### Usage
 
-1. Start the server: `node app.js`.
+1. Start the server: `node server.js`.
 2. Access the API endpoints using tools like Postman or any HTTP client.
 
 ## API Endpoints
