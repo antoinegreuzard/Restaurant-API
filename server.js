@@ -1,15 +1,17 @@
 const express = require('express');
 const basicAuth = require('express-basic-auth');
 const mysql = require('mysql');
+require('dotenv').config();
+const bcrypt = require('bcrypt');
 const app = express();
 app.use(express.json());
 const port = 3000;
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'restapi'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 app.listen(port, function () {
@@ -26,8 +28,8 @@ db.connect(function (err) {
 });
 
 const users = {
-    'admin': {password: 'admin'},
-    'client': {password: 'client'}
+    'admin': {password: bcrypt.hashSync('admin', 10)},
+    'client': {password: bcrypt.hashSync('client', 10)}
 };
 
 app.use(basicAuth({
@@ -35,7 +37,7 @@ app.use(basicAuth({
     unauthorizedResponse: 'Unauthorized',
     authorizer: (username, password, cb) => {
         const user = users[username];
-        if (!user || password !== user.password) {
+        if (!user || !bcrypt.compareSync(password, user.password)) {
             return cb(null, false);
         }
         return cb(null, true, user.role);
