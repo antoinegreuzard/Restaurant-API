@@ -24,7 +24,19 @@ Before you begin, make sure you have the following installed:
 - Create a database named `restapi`.
 - Import the database schema from the `database.sql` file in the repository.
 
-4. Configure the database connection in `server.js` if necessary.
+4. Create a `.env` file in the root directory and add the following environment variables:
+
+```
+DB_HOST=your_database_host
+DB_USER=your_database_user
+DB_PASS=your_database_password
+DB_NAME=restapi
+ADMIN_PASS=admin_password
+CLIENT_PASS=client_password
+```
+
+Replace `your_database_host`, `your_database_user`, and `your_database_password` with your MySQL database credentials.
+Set appropriate passwords for `ADMIN_PASS` and `CLIENT_PASS`.
 
 ### Usage
 
@@ -62,8 +74,8 @@ Before you begin, make sure you have the following installed:
 Basic authentication is implemented for API access. Two user roles are available: `admin` and `client`. Only `admin`
 users have access to create, update, and delete operations.
 
-- **Username**: admin, Password: admin (for admin access)
-- **Username**: client, Password: client (for client access)
+- **Username**: admin, **Password**: admin (for admin access)
+- **Username**: client, **Password**: client (for client access)
 
 ## Error Handling
 
