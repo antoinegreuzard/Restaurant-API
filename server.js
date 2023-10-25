@@ -28,8 +28,8 @@ db.connect(function (err) {
 });
 
 const users = {
-    'admin': {password: bcrypt.hashSync('admin', 10)},
-    'client': {password: bcrypt.hashSync('client', 10)}
+    'admin': {password: bcrypt.hashSync(process.env.ADMIN_PASS, 10)},
+    'client': {password: bcrypt.hashSync(process.env.CLIENT_PASS, 10)}
 };
 
 app.use(basicAuth({
