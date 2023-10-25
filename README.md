@@ -71,8 +71,8 @@ Set appropriate passwords for `ADMIN_PASS` and `CLIENT_PASS`.
 
 ## Authentication
 
-Basic authentication is implemented for API access. Two user roles are available: `admin` and `client`. Only `admin`
-users have access to create, update, and delete operations.
+Basic authentication is implemented for API access. Two user roles are available: `admin` and `client`.
+Only `admin` users have access to create, update, and delete operations.
 
 - **Username**: admin, **Password**: admin (for admin access)
 - **Username**: client, **Password**: client (for client access)
