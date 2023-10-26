@@ -1,0 +1,1852 @@
+{
+	"info": {
+		"_postman_id": "741ab711-f61e-4284-a0de-2cdcedbc62e5",
+		"name": "RESTaurant API",
+		"description": "We provides digital menu and online ordering solutions, intuitive\nand ergonomic, to fit the customers demands: we optimize all of their services to provide a gain of time.\n\nContact Support:\n Name: RESTaurant API Inc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "items",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get an item",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/items/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Get the item with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"minim aute reprehenderit ipsum\",\n \"id \": 95500471,\n \"description\": \"aute commodo\",\n \"price\": -29236215.80513625,\n \"category_id\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Update an item",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Tartiflette\",\n    \"description\": \"Oven-baked dish of charlotte potatoes, bacon lardons, double cream, shallots, garlic and 1 whole Reblochon cheese\",\n    \"price\": 12.5,\n    \"category_id\": 3\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/items/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update the item with the specified id"
+							},
+							"response": [
+								{
+									"name": "Invalid json body received",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"minim aute reprehenderit ipsum\",\n \"id \": 95500471,\n \"description\": \"aute commodo\",\n \"price\": -29236215.80513625,\n \"category_id\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete an item",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/items/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Delete the item with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/items/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"message\": \"Item 'Tomato soup' deleted with success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/items?category=mains",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "mains",
+									"description": "Used to search for items in a specific category"
+								}
+							]
+						},
+						"description": "Get a list of all items."
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/items?category=cupidatat Lorem dolor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "cupidatat Lorem dolor"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"items\": [\n  {\n   \"name\": \"occaecat exercitation nisi veniam\",\n   \"id \": 97189953,\n   \"description\": \"sit\",\n   \"price\": -64691264.052546814,\n   \"category_id\": 0\n  },\n  {\n   \"name\": \"qui labore\",\n   \"id \": 13989,\n   \"description\": \"Lorem velit\",\n   \"price\": -68827098.46785945,\n   \"category_id\": 0\n  }\n ]\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/items?category=cupidatat Lorem dolor",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "cupidatat Lorem dolor"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tartiflette\",\n    \"description\": \"Oven-baked dish of charlotte potatoes, bacon lardons, double cream, shallots, garlic and 1 whole Reblochon cheese\",\n    \"price\": 12.5,\n    \"category_id\": 3\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/items",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"items"
+							]
+						},
+						"description": "Add a new item"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "Invalid json body received",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"ex qui sit nisi\",\n    \"description\": \"proident do ipsum sed incididunt\",\n    \"price\": 91243103.4757773,\n    \"category_id\": 0\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"name\": \"minim aute reprehenderit ipsum\",\n \"id \": 95500471,\n \"description\": \"aute commodo\",\n \"price\": -29236215.80513625,\n \"category_id\": 0\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "{{password}}",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "{{username}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get a category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Get the category with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"eu tempor\",\n \"id\": -67463083\n}"
+								}
+							]
+						},
+						{
+							"name": "Update a category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"mains\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update the category with the specified id"
+							},
+							"response": [
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"sunt esse\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"sunt esse\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "Invalid json body received",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"sunt esse\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"sunt esse\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"eu tempor\",\n \"id\": -67463083\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete the category with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"message\": \"Category 'mains' deleted with success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						},
+						"description": "Get a list of all categories."
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"categories\": [\n  {\n   \"name\": \"aliquip laboris nostrud\",\n   \"id\": -67162189\n  },\n  {\n   \"name\": \"dolor officia consequat deserunt\",\n   \"id\": -77648076\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a new category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"mains\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						},
+						"description": "Add a new category"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"sunt esse\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"name\": \"eu tempor\",\n \"id\": -67463083\n}"
+						},
+						{
+							"name": "Invalid json body received",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"sunt esse\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"sunt esse\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "formulas",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get a formula",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/formulas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Get the formula with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"tempor esse consectetur\",\n \"price\": 44472388.96250254,\n \"id\": 27906192,\n \"categories\": [\n  {\n   \"name\": \"labore aliqua pariatur Ex\",\n   \"id\": 38947970\n  },\n  {\n   \"name\": \"minim Duis\",\n   \"id\": 79941162\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update a formula",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"classic\",\n    \"price\": 15,\n    \"categories\": [\n        {\n            \"name\": \"starter\",\n            \"id\": 1\n        },\n        {\n            \"name\": \"mains\",\n            \"id\": 3\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/formulas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update the formula with the specified id"
+							},
+							"response": [
+								{
+									"name": "The specified resource was not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "Invalid json body received",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								},
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"name\": \"tempor esse consectetur\",\n \"price\": 44472388.96250254,\n \"id\": 27906192,\n \"categories\": [\n  {\n   \"name\": \"labore aliqua pariatur Ex\",\n   \"id\": 38947970\n  },\n  {\n   \"name\": \"minim Duis\",\n   \"id\": 79941162\n  }\n ]\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a formula",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/formulas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete the formula with the specified id"
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/formulas/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"formulas",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"message\": \"Formula 'classic' deleted with success\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get formulas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/formulas?name=mains&price_min=0&price_max=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"formulas"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "mains",
+									"description": "Used to search for formulas containing a specific given name"
+								},
+								{
+									"key": "price_min",
+									"value": "0",
+									"description": "Used to search only for formulas strictly above the given price"
+								},
+								{
+									"key": "price_max",
+									"value": "20",
+									"description": "Used to search only for formulas strictly below the given price"
+								}
+							]
+						},
+						"description": "Get a list of all formulas."
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/formulas?name=cupidatat Lorem dolor&price_min=-65690110.3190298&price_max=-65690110.3190298",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "cupidatat Lorem dolor"
+										},
+										{
+											"key": "price_min",
+											"value": "-65690110.3190298"
+										},
+										{
+											"key": "price_max",
+											"value": "-65690110.3190298"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"formulas\": [\n  {\n   \"name\": \"officia irure dolore\",\n   \"price\": -62464465.23799873,\n   \"id\": 29896427,\n   \"categories\": [\n    {\n     \"name\": \"aliquip aliqua d\",\n     \"id\": -77990998\n    },\n    {\n     \"name\": \"cupidatat\",\n     \"id\": 97321789\n    }\n   ]\n  },\n  {\n   \"name\": \"ut qui culpa sed\",\n   \"price\": 34997549.66358185,\n   \"id\": 56443447,\n   \"categories\": [\n    {\n     \"name\": \"consectetur\",\n     \"id\": -60901643\n    },\n    {\n     \"name\": \"consectetur minim\",\n     \"id\": -44169629\n    }\n   ]\n  }\n ]\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/formulas?name=cupidatat Lorem dolor&price_min=-65690110.3190298&price_max=-65690110.3190298",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "cupidatat Lorem dolor"
+										},
+										{
+											"key": "price_min",
+											"value": "-65690110.3190298"
+										},
+										{
+											"key": "price_max",
+											"value": "-65690110.3190298"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add new formula",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"classic\",\n    \"price\": 15,\n    \"categories\": [\n        {\n            \"name\": \"starter\",\n            \"id\": 1\n        },\n        {\n            \"name\": \"mains\",\n            \"id\": 3\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/formulas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"formulas"
+							]
+						},
+						"description": "Add a new formula"
+					},
+					"response": [
+						{
+							"name": "Invalid json body received",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/formulas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/formulas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 26488615.90618971,\n \"message\": \"tempor voluptate sed eiusmod\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"magna et voluptate cillum\",\n    \"price\": 54943111.76189464,\n    \"categories\": [\n        {\n            \"name\": \"fugiat culpa\",\n            \"id\": 36641792\n        },\n        {\n            \"name\": \"sunt\",\n            \"id\": 47591109\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/formulas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"formulas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"name\": \"tempor esse consectetur\",\n \"price\": 44472388.96250254,\n \"id\": 27906192,\n \"categories\": [\n  {\n   \"name\": \"labore aliqua pariatur Ex\",\n   \"id\": 38947970\n  },\n  {\n   \"name\": \"minim Duis\",\n   \"id\": 79941162\n  }\n ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
