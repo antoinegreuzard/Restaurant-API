@@ -28,8 +28,8 @@ db.connect(function (err) {
 });
 
 const users = {
-    'admin': {password: bcrypt.hashSync(process.env.ADMIN_PASS, 10)},
-    'client': {password: bcrypt.hashSync(process.env.CLIENT_PASS, 10)}
+    'admin': {password: bcrypt.hashSync(process.env.ADMIN_PASS, 10), role: 'admin'},
+    'client': {password: bcrypt.hashSync(process.env.CLIENT_PASS, 10), role: 'client'}
 };
 
 app.use(basicAuth({
@@ -43,7 +43,11 @@ app.use(basicAuth({
         return cb(null, true, user.role);
     }
 }), (req, res, next) => {
+    if(!req.auth){
+        return res.status(401).send('Unauthorized');
+    }
     const user = req.auth.user;
+
     if (req.method !== 'GET' && user !== 'admin') {
         res.status(403).send('Forbidden')
     } else {
