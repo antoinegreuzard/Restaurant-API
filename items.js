@@ -58,7 +58,7 @@ module.exports = (db) => {
         });
     });
 
-    router.get('/items/:id', function (req, res) {
+    router.get('/:id', function (req, res) {
         const id = req.params.id;
         db.query('SELECT * FROM items WHERE id = ?', [id], function (err, results) {
             if (err) {
