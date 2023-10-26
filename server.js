@@ -13,8 +13,8 @@ const categories = require('./categories')(db);
 const formulas = require('./formulas')(db);
 
 const users = {
-    'admin': {password: bcrypt.hashSync(process.env.ADMIN_PASS, 10), role: 'admin'},
-    'client': {password: bcrypt.hashSync(process.env.CLIENT_PASS, 10), role: 'client'}
+    'admin': {password: bcrypt.hashSync(process.env.ADMIN_PASS, 16), role: 'admin'},
+    'client': {password: bcrypt.hashSync(process.env.CLIENT_PASS, 16), role: 'client'}
 };
 
 app.use(basicAuth({
@@ -44,7 +44,7 @@ app.get('/', function (req, res) {
     db.query('SELECT 1', function (err) {
         if (err) {
             console.error(err);
-            res.send('Database connection failed');
+            res.status(500).send('Database connection failed');
         } else {
             res.send(`Database connection is OK!<br><br>http://localhost:${port}/items<br>http://localhost:${port}/categories<br>http://localhost:${port}/formulas`);
         }

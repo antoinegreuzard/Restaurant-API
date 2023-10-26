@@ -68,7 +68,7 @@ module.exports = (db) => {
                 if (results[0]) {
                     res.json(results[0]);
                 } else {
-                    res.send('No data')
+                    res.status(500).send('No data')
                 }
             }
         });

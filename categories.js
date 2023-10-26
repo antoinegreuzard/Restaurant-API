@@ -6,12 +6,12 @@ module.exports = (db) => {
         db.query('SELECT * FROM categories', function (err, results) {
             if (err) {
                 console.error(err);
-                res.send('Failed to retrieve categories');
+                res.status(500).send('Failed to retrieve categories');
             } else {
                 if (results[0]) {
                     res.json(results);
                 } else {
-                    res.send('No data')
+                    res.status(500).send('No data')
                 }
             }
         });
@@ -43,7 +43,7 @@ module.exports = (db) => {
                 if (results[0]) {
                     res.json(results[0]);
                 } else {
-                    res.send('No data')
+                    res.status(500).send('No data')
                 }
             }
         });
