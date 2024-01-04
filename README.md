@@ -85,12 +85,11 @@ Only `admin` users have access to create, update, and delete operations.
 - 404 Not Found: Endpoint or resource not found.
 - 500 Internal Server Error: Server-side error occurred.
 
-## Contribution
-
-Les contributions sont bienvenues. N'hésitez pas à forker le projet, à créer des branches, à
-soumettre des Pull Requests, et à envoyer des suggestions pour améliorer l'application.
-
 ## Feedback
 
 If you have any feedback or questions, please create an issue or reach out to us. Thank you for using the Restaurant
 API!
+
+## Licence
+
+[MIT](https://opensource.org/licenses/MIT)
