@@ -38,7 +38,7 @@ jobs:
 
       - name: Populate database
         run: |
-          mysql -h 127.0.0.1 -u root -proot restapi < resapi.sql
+          mysql -h 127.0.0.1 -u root -proot restapi < restapi.sql
 
       - name: Run tests
         env:
