@@ -32,10 +32,10 @@ app.use(
       const user = users[username];
       if (!user || !bcrypt.compareSync(password, user.password)) {
         cb(null, false);
-        return undefined; // Explicit return to satisfy ESLint
+        return undefined;
       }
       cb(null, true, user.role);
-      return undefined; // Explicit return to satisfy ESLint
+      return undefined;
     },
   }),
   /* eslint-disable consistent-return */
@@ -71,3 +71,5 @@ app.use('/formulas', formulas);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+module.exports = app;

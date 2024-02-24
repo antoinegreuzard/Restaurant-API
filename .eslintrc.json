@@ -3,13 +3,24 @@
     "browser": true,
     "commonjs": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
+  "plugins": [
+    "prettier",
+    "jest"
+  ],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": [
+      "error"
+    ]
   }
 }

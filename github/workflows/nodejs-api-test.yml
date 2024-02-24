@@ -1,0 +1,51 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: restapi
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Wait for MySQL
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '20s'
+
+      - name: Populate database
+        run: |
+          mysql -h 127.0.0.1 -u root -proot restapi < resapi.sql
+
+      - name: Run tests
+        env:
+          ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
+          CLIENT_PASS: ${{ secrets.CLIENT_PASS }}
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASS: root
+          DB_NAME: restapi
+        run: npm test
