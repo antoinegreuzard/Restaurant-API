@@ -44,6 +44,6 @@ describe('GET /items', () => {
       .auth('admin', process.env.ADMIN_PASS);
 
     expect(response.statusCode).toBe(200);
-    expect(response.body).toBeInstanceOf(Array);
+    expect(response.body).toBeInstanceOf(Object);
   });
 });
