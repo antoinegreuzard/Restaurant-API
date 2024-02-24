@@ -47,7 +47,7 @@ module.exports = (db) => {
     });
   });
 
-  router.put('/:id', (req, res) => {
+  router.put('/:id', rateLimitMiddleware, (req, res) => {
     const { id } = req.params;
     const newCategory = req.body;
     const sql = 'UPDATE categories SET name = ?,description = ? WHERE id = ?';
