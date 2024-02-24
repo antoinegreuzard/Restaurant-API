@@ -93,4 +93,4 @@ CREATE TABLE `items`
 INSERT INTO categories (name, description)
 VALUES ('Catégorie 1', 'Description pour Catégorie 1');
 INSERT INTO items (name, price, description, categorie)
-VALUES ('Item 1', 100, 'Description pour Item 1', 1);
+VALUES ('Item 1', 100, 'Description pour Item 1', 3);
