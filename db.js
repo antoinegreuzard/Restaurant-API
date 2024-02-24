@@ -6,16 +6,16 @@ const db = mysql.createConnection({
   port: '3306',
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
 });
 
-db.connect(function (err) {
+db.connect((err) => {
   if (err) {
-    console.error('Error connecting: ' + err.stack);
+    console.error(`Error connecting: ${err.stack}`);
     return;
   }
 
-  console.log('Connected as id ' + db.threadId);
+  console.log(`Connected as id ${db.threadId}`);
 });
 
 module.exports = db;
