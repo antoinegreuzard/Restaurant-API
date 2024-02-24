@@ -1,7 +1,7 @@
 const express = require('express');
 const basicAuth = require('express-basic-auth');
-const RateLimit = require('express-rate-limit');
 const bcrypt = require('bcrypt');
+const rateLimitMiddleware = require('./rateLimiter');
 require('dotenv').config();
 
 const app = express();
@@ -25,12 +25,7 @@ const users = {
   },
 };
 
-const limiter = RateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
-
-app.use(limiter);
+app.use(rateLimitMiddleware);
 
 app.use(
   basicAuth({

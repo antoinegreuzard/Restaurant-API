@@ -1,17 +1,10 @@
 const express = require('express');
-const RateLimit = require('express-rate-limit');
+const rateLimitMiddleware = require('./rateLimiter');
 
 const router = express.Router();
 
-const limiter = RateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
-
-router.use(limiter);
-
 module.exports = (db) => {
-  router.get('/', (req, res) => {
+  router.get('/', rateLimitMiddleware, (req, res) => {
     db.query('SELECT * FROM categories', (err, results) => {
       if (err) {
         res.status(500).send('Failed to retrieve categories');
@@ -23,7 +16,7 @@ module.exports = (db) => {
     });
   });
 
-  router.post('/', (req, res) => {
+  router.post('/', rateLimitMiddleware, (req, res) => {
     const categories = req.body;
     const sql = 'INSERT INTO categories (name, description) VALUES ?';
 
@@ -41,7 +34,7 @@ module.exports = (db) => {
     });
   });
 
-  router.get('/:id', (req, res) => {
+  router.get('/:id', rateLimitMiddleware, (req, res) => {
     const { id } = req.params;
     db.query('SELECT * FROM categories WHERE id = ?', [id], (err, results) => {
       if (err) {
@@ -68,7 +61,7 @@ module.exports = (db) => {
     });
   });
 
-  router.delete('/:id', (req, res) => {
+  router.delete('/:id', rateLimitMiddleware, (req, res) => {
     const { id } = req.params;
     db.query('DELETE FROM categories WHERE id = ?', [id], (error) => {
       if (error) throw error;
