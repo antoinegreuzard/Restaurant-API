@@ -1,6 +1,14 @@
 const express = require('express');
+const RateLimit = require('express-rate-limit');
 
 const router = express.Router();
+
+const limiter = RateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+
+router.use(limiter);
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
