@@ -41,7 +41,7 @@ app.use(
       return undefined;
     },
   }),
-  /* eslint-disable consistent-return */
+
   (req, res, next) => {
     if (!req.auth) {
       return res.status(401).send('Unauthorized');
